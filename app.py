@@ -187,7 +187,7 @@ elif "memories" not in dropdowns or not dropdowns.get("memories"):
             col.replace("Memory_", "") for col in model_columns if col.startswith("Memory_")
         ])
 
-components.html(
+st.html(
     """
     <script>
         const pingIntervalMs = 45000;
@@ -200,9 +200,7 @@ components.html(
         }
         setInterval(sendKeepAlive, pingIntervalMs);
     </script>
-    """,
-    height=0,
-    width=0
+    """
 )
 
 with st.sidebar:
@@ -514,7 +512,7 @@ with col_right:
             encoded_row[col] = 1
 
     try:
-        prediction_val = float(model.predict(encoded_row.values, verbose=0)[0][0])
+        prediction_val = float(model(encoded_row.values.astype(np.float32), training=False)[0][0])
         pred_euros = max(100.0, prediction_val)
         pred_inr = pred_euros * exchange_rate
         
