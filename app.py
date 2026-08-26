@@ -7,9 +7,11 @@ import streamlit as st
 import streamlit.components.v1 as components
 
 os.environ["TF_ENABLE_ONEDNN_OPTS"] = "0"
-os.environ["TF_CPP_MIN_LOG_LEVEL"] = "3"
-
-import keras
+try:
+    from tensorflow.keras.models import load_model
+except Exception:
+    import keras
+    load_model = keras.models.load_model
 
 st.set_page_config(
     page_title="Laptop Price Predictor AI",
@@ -151,7 +153,7 @@ st.markdown("""
 
 @st.cache_resource(show_spinner=False)
 def load_artifacts():
-    model = keras.models.load_model("laptop_price_model.keras")
+    model = load_model("laptop_price_model.keras")
     with open("model_columns.pkl", "rb") as f:
         model_columns = pickle.load(f)
     with open("dropdowns.pkl", "rb") as f:
