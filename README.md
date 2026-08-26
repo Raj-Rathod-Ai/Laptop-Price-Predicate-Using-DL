@@ -1,5 +1,10 @@
 # Laptop Price Predictor AI (Deep Learning & Streamlit)
 
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://laptop-price-predicate.streamlit.app/)
+[![GitHub Repo](https://img.shields.io/badge/GitHub-Repository-181717?logo=github)](https://github.com/Raj-Rathod-Ai/Laptop-Price-Predicate-Using-DL)
+
+🚀 **Live Web Application**: [https://laptop-price-predicate.streamlit.app/](https://laptop-price-predicate.streamlit.app/)
+
 An intelligent deep learning web application that estimates laptop market valuations based on hardware specifications, component tiers, and historical retail market data. Built with an Artificial Neural Network (ANN) in TensorFlow/Keras and deployed with an interactive, modern Streamlit user interface.
 
 ---
